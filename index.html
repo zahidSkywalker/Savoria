@@ -1,0 +1,2097 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Savoria - Fine Dining Restaurant â Delicious Cuisine</title>
+  <meta name="description" content="Experience fine dining with a wide range of delicious cuisine featuring Bangladeshi & Chinese flavors in a welcoming atmosphere.">
+  <meta name="keywords" content="Fine Dining, Restaurant, Bangladeshi Cuisine, Chinese Cuisine, Dhaka Restaurant">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Savoria - Fine Dining Restaurant â Delicious Cuisine">
+  <meta property="og:description" content="Experience fine dining with a wide range of delicious Bangladeshi & Chinese cuisine in a welcoming atmosphere.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://storage.googleapis.com/a1aa/image/4a2833a5-262c-4f8b-cf48-3da883a89e7a.jpg">
+  <meta property="og:url" content="https://savoria.com">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Savoria - Fine Dining Restaurant â Delicious Cuisine">
+  <meta name="twitter:description" content="Experience fine dining with a wide range of delicious Bangladeshi & Chinese cuisine in a welcoming atmosphere.">
+  <meta name="twitter:image" content="https://storage.googleapis.com/a1aa/image/4a2833a5-262c-4f8b-cf48-3da883a89e7a.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ð½ï¸</text></svg>">
+  
+  <!-- Schema.org Restaurant Markup -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Savoria",
+      "image": "https://storage.googleapis.com/a1aa/image/4a2833a5-262c-4f8b-cf48-3da883a89e7a.jpg",
+      "description": "Experience fine dining with a wide range of delicious Bangladeshi & Chinese cuisine in a welcoming atmosphere.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Main Street",
+        "addressLocality": "Dhaka",
+        "addressRegion": "Dhaka",
+        "postalCode": "1207",
+        "addressCountry": "BD"
+      },
+      "telephone": "+880 1234-567890",
+      "priceRange": "$-$$",
+      "servesCuisine": ["Bangladeshi", "Chinese"],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "11:30",
+          "closes": "14:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "17:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday", "Saturday"],
+          "opens": "17:00",
+          "closes": "23:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "17:00",
+          "closes": "21:00"
+        }
+      ]
+    }
+  </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  
+  <!-- EmailJS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  
+  <style>
+    body {
+      font-family: "Montserrat", sans-serif;
+      color: #333;
+      background: #fff;
+    }
+    /* Logo styles */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 900;
+      font-size: 1.5rem;
+      font-family: "Montserrat", sans-serif;
+      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.6);
+      animation: pulse 3s infinite ease-in-out;
+      flex-shrink: 0;
+    }
+    .logo-text {
+      font-weight: 900;
+      font-size: 1.75rem;
+      color: #e74c3c;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 6px rgba(199, 44, 30, 0.7);
+      animation: slideInLeft 1.2s ease forwards;
+      opacity: 0;
+    }
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 15px 3px rgba(231, 76, 60, 0.7);
+      }
+      50% {
+        box-shadow: 0 0 25px 6px rgba(231, 76, 60, 1);
+      }
+    }
+    @keyframes slideInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+    }
+    /* Scroll reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Button pulse animation */
+    .btn-pulse {
+      animation: pulseBtn 2.5s infinite ease-in-out;
+    }
+    @keyframes pulseBtn {
+      0%, 100% {
+        box-shadow: 0 0 10px 0 rgba(231, 76, 60, 0.7);
+      }
+      50% {
+        box-shadow: 0 0 20px 6px rgba(231, 76, 60, 1);
+      }
+    }
+    /* Chatbot styles */
+    .chatbot-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #e74c3c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    .chatbot-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+    .chatbot-container {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 350px;
+      height: 450px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      z-index: 1000;
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+    }
+    .chatbot-header {
+      background-color: #e74c3c;
+      color: white;
+      padding: 15px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+    }
+    .chatbot-input-container {
+      padding: 10px;
+      border-top: 1px solid #eee;
+      display: flex;
+    }
+    .chatbot-input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      outline: none;
+    }
+    .chatbot-send {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-left: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .message {
+      margin-bottom: 10px;
+      padding: 10px 15px;
+      border-radius: 20px;
+      max-width: 80%;
+    }
+    .user-message {
+      background-color: #e74c3c;
+      color: white;
+      margin-left: auto;
+    }
+    .bot-message {
+      background-color: #f1f1f1;
+      margin-right: auto;
+    }
+    /* Reservation form modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1050;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1100;
+      transform: translateX(400px);
+      transition: transform 0.3s ease-out;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toast.show {
+      transform: translateX(0);
+    }
+    .toast.error {
+      background-color: #f44336;
+    }
+    /* Food Detail Modal Styles */
+    .food-detail-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1050;
+      justify-content: center;
+      align-items: center;
+      overflow-y: auto;
+    }
+    .food-detail-content {
+      background-color: white;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      margin: 40px auto;
+    }
+    .food-detail-header {
+      position: relative;
+      height: 300px;
+    }
+    .food-detail-header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .food-detail-header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      color: white;
+    }
+    .food-detail-body {
+      padding: 30px;
+    }
+    .food-detail-tabs {
+      display: flex;
+      border-bottom: 1px solid #e5e7eb;
+      margin-bottom: 20px;
+    }
+    .food-detail-tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .food-detail-tab.active {
+      color: #e74c3c;
+      border-bottom: 2px solid #e74c3c;
+    }
+    .food-detail-section {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+    .food-detail-section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .nutritional-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .ingredients-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .ingredient-tag {
+      background-color: #f8f8f8;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .close-food-detail {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 10;
+      transition: background-color 0.3s ease;
+    }
+    .close-food-detail:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+    .menu-item {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden bg-white">
+  <div class="max-w-full m-0 relative" id="mainContainer">
+    <!-- Navigation -->
+    <nav aria-label="Primary Navigation" class="fixed top-0 left-0 right-0 bg-black z-40 transition-all duration-300 bg-opacity-70 py-4" id="navbarEl" role="navigation">
+      <div class="max-w-[1200px] mx-auto px-5 flex justify-between items-center">
+        <a aria-label="Savoria Home Logo" class="logo-container" href="#">
+          <div aria-hidden="true" class="logo-icon">
+            S
+          </div>
+          <span class="logo-text">
+            Savoria
+          </span>
+        </a>
+        <div aria-label="Toggle menu" class="text-white text-3xl cursor-pointer md:hidden" id="menuToggleBtn" role="button" tabindex="0">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="hidden md:flex list-none space-x-8 text-white font-semibold" id="menuLinksEl">
+          <li>
+            <a class="hover:text-red-600 transition-colors duration-300" href="#home">
+              Home
+            </a>
+          </li>
+          <li>
+            <a class="hover:text-red-600 transition-colors duration-300" href="#about">
+              About
+            </a>
+          </li>
+          <li>
+            <a class="hover:text-red-600 transition-colors duration-300" href="#menu">
+              Menu
+            </a>
+          </li>
+          <li>
+            <a class="hover:text-red-600 transition-colors duration-300" href="#hours">
+              Hours
+            </a>
+          </li>
+          <li>
+            <a class="hover:text-red-600 transition-colors duration-300" href="#contact">
+              Contact
+            </a>
+          </li>
+          <li>
+            <button id="reservationBtn" class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-full transition-colors duration-300">
+              Reserve Now
+            </button>
+          </li>
+        </ul>
+      </div>
+      <!-- Mobile Menu (Hidden by default) -->
+      <div id="mobileMenu" class="hidden bg-black bg-opacity-95 w-full absolute top-[72px] left-0 right-0 p-5 shadow-lg">
+        <ul class="flex flex-col space-y-4 text-white">
+          <li>
+            <a class="block py-2 hover:text-red-600 transition-colors duration-300" href="#home">
+              Home
+            </a>
+          </li>
+          <li>
+            <a class="block py-2 hover:text-red-600 transition-colors duration-300" href="#about">
+              About
+            </a>
+          </li>
+          <li>
+            <a class="block py-2 hover:text-red-600 transition-colors duration-300" href="#menu">
+              Menu
+            </a>
+          </li>
+          <li>
+            <a class="block py-2 hover:text-red-600 transition-colors duration-300" href="#hours">
+              Hours
+            </a>
+          </li>
+          <li>
+            <a class="block py-2 hover:text-red-600 transition-colors duration-300" href="#contact">
+              Contact
+            </a>
+          </li>
+          <li>
+            <button id="mobileReservationBtn" class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-full transition-colors duration-300">
+              Reserve Now
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section aria-label="Hero Section" class="relative h-screen flex flex-col items-center justify-center text-center px-5 bg-black bg-opacity-50 overflow-hidden" id="home">
+      <img alt="Interior of a Bangladeshi and Chinese restaurant with traditional wooden furniture, colorful lanterns, and warm lighting" class="absolute inset-0 w-full h-full object-cover -z-10" height="1080" loading="eager" src="https://storage.googleapis.com/a1aa/image/4a2833a5-262c-4f8b-cf48-3da883a89e7a.jpg" width="1920">
+      <div class="max-w-xl text-white drop-shadow-lg space-y-6">
+        <h1 aria-label="Savoria Restaurant Name" class="text-6xl md:text-7xl font-extrabold mb-2 tracking-widest animate-fadeInDown">
+          Savoria
+        </h1>
+        <p aria-label="Hero tagline" class="text-2xl md:text-3xl font-semibold text-shadow-lg animate-fadeInUp">
+          Experience the art of Bangladeshi & Chinese fine dining
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a aria-label="View Menu" class="inline-block bg-red-600 hover:bg-red-700 transition-colors text-white font-semibold py-4 px-8 sm:px-14 rounded-full shadow-lg btn-pulse focus:outline-none focus:ring-4 focus:ring-red-400" href="#menu">
+            View Menu
+          </a>
+          <button aria-label="Make Reservation" id="heroReservationBtn" class="inline-block bg-white text-red-600 hover:bg-gray-100 transition-colors font-semibold py-4 px-8 sm:px-14 rounded-full shadow-lg focus:outline-none focus:ring-4 focus:ring-red-400">
+            Reserve Table
+          </button>
+        </div>
+      </div>
+      <div aria-hidden="true" class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-red-600 text-4xl">
+        <i class="fas fa-angle-down"></i>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section aria-labelledby="about-title" class="bg-white py-24 px-5 max-w-[1200px] mx-auto flex flex-col md:flex-row items-center gap-12 reveal" id="about" tabindex="0">
+      <div class="flex-1 min-w-[300px] space-y-6">
+        <h2 class="text-4xl font-extrabold mb-6 text-red-600" id="about-title">
+          Our Story
+        </h2>
+        <p class="text-lg leading-relaxed">
+          Founded in 2010, Savoria has been delighting guests with exceptional
+          Bangladeshi and Chinese cuisine. Our chefs bring decades of
+          experience, blending traditional flavors with modern innovation.
+        </p>
+        <p class="text-lg leading-relaxed">
+          We use only the freshest, locally-sourced ingredients to create
+          memorable dining experiences. Each dish tells a story of passion,
+          creativity, and respect for culinary traditions.
+        </p>
+        <div class="pt-6">
+          <a href="#menu" class="inline-block text-red-600 border-2 border-red-600 hover:bg-red-600 hover:text-white transition-colors duration-300 font-semibold py-3 px-8 rounded-full">
+            Explore Our Menu
+          </a>
+        </div>
+      </div>
+      <div class="flex-1 min-w-[300px] rounded-lg shadow-lg overflow-hidden">
+        <img alt="Bangladeshi chef in traditional attire preparing a traditional dish in a rustic kitchen" class="w-full h-full object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/ec2fac10-9408-4399-40bc-67b0b6c3a7b3.jpg" width="600">
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section aria-labelledby="menu-title" class="bg-gray-50 py-24 px-5 max-w-[1200px] mx-auto reveal" id="menu" tabindex="0">
+      <h2 class="text-4xl font-extrabold mb-12 text-center text-red-600" id="menu-title">
+        Our Menu
+      </h2>
+      
+      <!-- Menu Categories -->
+      <div aria-label="Menu Categories" class="flex justify-center flex-wrap gap-8 mb-16" id="menuCategoriesCtn" role="tablist">
+        <button aria-controls="startersMenu" aria-selected="true" class="category-btn active text-red-600 font-semibold border-b-2 border-red-600 pb-1 text-lg cursor-pointer" data-category="starters" id="tab-starters" role="tab" tabindex="0">
+          Starters
+        </button>
+        <button aria-controls="mainsMenu" aria-selected="false" class="category-btn font-semibold text-gray-700 border-b-2 border-transparent pb-1 text-lg cursor-pointer" data-category="mains" id="tab-mains" role="tab" tabindex="0">
+          Main Courses
+        </button>
+        <button aria-controls="dessertsMenu" aria-selected="false" class="category-btn font-semibold text-gray-700 border-b-2 border-transparent pb-1 text-lg cursor-pointer" data-category="desserts" id="tab-desserts" role="tab" tabindex="0">
+          Desserts
+        </button>
+        <button aria-controls="drinksMenu" aria-selected="false" class="category-btn font-semibold text-gray-700 border-b-2 border-transparent pb-1 text-lg cursor-pointer" data-category="drinks" id="tab-drinks" role="tab" tabindex="0">
+          Drinks
+        </button>
+      </div>
+
+      <!-- Menu Items Container -->
+      <div class="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" id="menuItemsCtn">
+        <!-- Starters Menu -->
+        <div aria-labelledby="tab-starters" class="menu-category active grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2" id="startersMenu" role="tabpanel">
+          <!-- Starter 1 -->
+          <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-item-id="fuchka">
+            <img alt="Fuchka - crispy hollow puri filled with spicy tamarind water and chickpeas, a popular Bangladeshi street food" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/6f63271b-d270-4db6-ad4f-cfa063a6be3c.jpg" width="400">
+            <div class="p-5">
+              <div aria-label="Dish name and price" class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold">
+                  Fuchka
+                </h3>
+                <span class="text-red-600 font-bold">
+                  $5
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Crispy hollow puri filled with spicy tamarind water and
+                chickpeas, a popular Bangladeshi street food.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Starter 2 -->
+          <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-item-id="chicken-chili">
+            <img alt="Bangladeshi Chicken Chili - spicy fried chicken with green chilies and garlic" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/62ede99c-5c28-4f88-13af-5e6888e50451.jpg" width="400">
+            <div class="p-5">
+              <div aria-label="Dish name and price" class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold">
+                  Chicken Chili
+                </h3>
+                <span class="text-red-600 font-bold">
+                  $8
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Spicy fried chicken tossed with green chilies and garlic, a
+                Bangladeshi favorite.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Starter 3 -->
+          <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-item-id="spring-rolls">
+            <img alt="Chinese Vegetable Spring Rolls - crispy rolls filled with mixed vegetables and served with sweet chili sauce" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/96a8a78f-4554-4214-db58-5639ca90fcbb.jpg" width="400">
+            <div class="p-5">
+              <div aria-label="Dish name and price" class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold">
+                  Vegetable Spring Rolls
+                </h3>
+                <span class="text-red-600 font-bold">
+                  $6
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Crispy rolls filled with mixed vegetables and served with sweet
+                chili sauce.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Starter 4 -->
+          <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-item-id="shutki-bhuna">
+            <img alt="Shutki Bhuna - traditional Bangladeshi dried fish cooked with spices" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/dde3603a-53a1-4727-cb6b-24b074078fd3.jpg" width="400">
+            <div class="p-5">
+              <div aria-label="Dish name and price" class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold">
+                  Shutki Bhuna
+                </h3>
+                <span class="text-red-600 font-bold">
+                  $9
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Traditional Bangladeshi dried fish cooked with aromatic spices.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Main Courses Menu -->
+        <div aria-labelledby="tab-mains" class="menu-category hidden grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2" id="mainsMenu" role="tabpanel">
+          <!-- Main 1 -->
+          <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-item-id="hilsha-curry">
+            <img alt="Hilsha Fish Curry - traditional Bangladeshi curry with Hilsha fish and mustard seeds" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/fb0a03d7-30f8-477d-a7ff-c9501504fa77.jpg" width="400">
+            <div class="p-5">
+              <div aria-label="Dish name and price" class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold">
+                  Hilsha Fish Curry
+                </h3>
+                <span class="text-red-600 font-bold">
+                  $18
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Traditional Bangladeshi curry with Hilsha fish and mustard seeds.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Main 2 -->
+          <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-item-id="beef-chili">
+            <img alt="Bangladeshi Beef Chili - spicy stir-fried beef with green chilies and garlic" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/d7d71574-fc22-4423-be3a-dd6bc916e793.jpg" width="400">
+            <div class="p-5">
+              <div aria-label="Dish name and price" class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold">
+                  Beef Chili
+                </h3>
+                <span class="text-red-600 font-bold">
+                  $20
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Spicy stir-fried beef with green chilies and garlic, a Bangladeshi favorite.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Main 3 -->
+          <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-item-id="kung-pao-chicken">
+            <img alt="Kung Pao Chicken - spicy stir-fried Chinese chicken with peanuts and vegetables" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/ee9f8ae3-f62f-4108-c579-1b4e83d9d8f9.jpg" width="400">
+            <div class="p-5">
+              <div aria-label="Dish name and price" class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold">
+                  Kung Pao Chicken
+                </h3>
+                <span class="text-red-600 font-bold">
+                  $22
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Spicy stir-fried Chinese chicken with peanuts and vegetables.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Main 4 -->
+          <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-item-id="fried-rice">
+            <img alt="Chinese Fried Rice - wok-fried rice with vegetables, eggs, and choice of meat" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/2fca4b36-4b84-41ad-2f40-f41f17cefd08.jpg" width="400">
+            <div class="p-5">
+              <div aria-label="Dish name and price" class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold">
+                  Fried Rice
+                </h3>
+                <span class="text-red-600 font-bold">
+                  $15
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Wok-fried rice with vegetables, eggs, and choice of meat.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Desserts Menu -->
+        <div aria-labelledby="tab-desserts" class="menu-category hidden grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2" id="dessertsMenu" role="tabpanel">
+          <!-- Dessert 1 -->
+          <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-item-id="mishti-doi">
+            <img alt="Mishti Doi - traditional Bengali sweetened yogurt dessert" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/211eb7ef-9d7c-4dc9-3da0-8053848a7b08.jpg" width="400">
+            <div class="p-5">
+              <div aria-label="Dish name and price" class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold">
+                  Mishti Doi
+                </h3>
+                <span class="text-red-600 font-bold">
+                  $6
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Traditional Bengali sweetened yogurt dessert, creamy and rich.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Dessert 2 -->
+          <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-item-id="rasgulla">
+            <img alt="Rasgulla - spongy Bengali sweet balls soaked in sugar syrup" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/8da2bc36-cab5-44b7-8534-c9713811246a.jpg" width="400">
+            <div class="p-5">
+              <div aria-label="Dish name and price" class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold">
+                  Rasgulla
+                </h3>
+                <span class="text-red-600 font-bold">
+                  $7
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Spongy Bengali sweet balls soaked in sugar syrup.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Dessert 3 -->
+          <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-item-id="fortune-cookie">
+            <img alt="Chinese Fortune Cookie - crisp cookie with a fortune message inside" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f3b6e324-511a-4f73-63e0-c2895bad789f.jpg" width="400">
+            <div class="p-5">
+              <div aria-label="Dish name and price" class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold">
+                  Fortune Cookie
+                </h3>
+                <span class="text-red-600 font-bold">
+                  $4
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Crisp cookie with a fortune message inside, a classic Chinese
+                dessert.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Drinks Menu -->
+        <div aria-labelledby="tab-drinks" class="menu-category hidden grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2" id="drinksMenu" role="tabpanel">
+          <!-- Drink 1 -->
+          <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-item-id="masala-chai">
+            <img alt="Masala Chai - traditional spiced tea popular in Bangladesh" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/b06ea071-5b87-45ad-7096-49ed3d85932a.jpg" width="400">
+            <div class="p-5">
+              <div aria-label="Dish name and price" class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold">
+                  Masala Chai
+                </h3>
+                <span class="text-red-600 font-bold">
+                  $3
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Traditional spiced tea popular in Bangladesh, with cardamom and
+                cinnamon.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Drink 2 -->
+          <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-item-id="lychee-martini">
+            <img alt="Lychee Martini - refreshing Chinese-inspired cocktail with lychee fruit" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f92a0222-00ce-4d11-898e-38451cf93341.jpg" width="400">
+            <div class="p-5">
+              <div aria-label="Dish name and price" class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold">
+                  Lychee Martini
+                </h3>
+                <span class="text-red-600 font-bold">
+                  $12
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Refreshing Chinese-inspired cocktail with lychee fruit and
+                vodka.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Drink 3 -->
+          <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl" data-item-id="sugarcane-juice">
+            <img alt="Fresh Sugarcane Juice - popular refreshing drink in Bangladesh" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/8431a4da-ebb5-4b4b-3de6-b4ab7f1a98db.jpg" width="400">
+            <div class="p-5">
+              <div aria-label="Dish name and price" class="flex justify-between items-center mb-2">
+                <h3 class="text-lg font-semibold">
+                  Fresh Sugarcane Juice
+                </h3>
+                <span class="text-red-600 font-bold">
+                  $4
+                </span>
+              </div>
+              <p class="text-gray-600 text-sm">
+                Popular refreshing drink in Bangladesh made from freshly pressed
+                sugarcane.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hours Section -->
+    <section aria-labelledby="hours-title" class="bg-white py-24 px-5 text-center max-w-xl mx-auto reveal" id="hours" tabindex="0">
+      <h2 class="text-4xl font-extrabold mb-12 text-red-600" id="hours-title">
+        Opening Hours
+      </h2>
+      
+      <div class="flex flex-wrap justify-between bg-gray-100 p-12 rounded-xl shadow-md gap-10" role="list">
+        <div class="flex-1 min-w-[250px]" role="listitem">
+          <h3 class="text-2xl font-semibold mb-6">
+            Lunch
+          </h3>
+          <p class="text-lg leading-relaxed">
+            Monday - Friday
+            <br>
+            <span class="text-red-600 font-bold">
+              11:30 AM - 2:30 PM
+            </span>
+          </p>
+        </div>
+        
+        <div class="flex-1 min-w-[250px]" role="listitem">
+          <h3 class="text-2xl font-semibold mb-6">
+            Dinner
+          </h3>
+          <p class="text-lg leading-relaxed">
+            Monday - Thursday
+            <br>
+            <span class="text-red-600 font-bold">
+              5:00 PM - 10:00 PM
+            </span>
+            <br>
+            <br>
+            Friday - Saturday
+            <br>
+            <span class="text-red-600 font-bold">
+              5:00 PM - 11:00 PM
+            </span>
+            <br>
+            <br>
+            Sunday
+            <br>
+            <span class="text-red-600 font-bold">
+              5:00 PM - 9:00 PM
+            </span>
+          </p>
+        </div>
+      </div>
+      
+      <button id="hoursReservationBtn" class="inline-block mt-12 bg-red-600 hover:bg-red-700 transition-colors text-white font-semibold py-3 px-10 rounded-full shadow-lg btn-pulse focus:outline-none focus:ring-4 focus:ring-red-400">
+        Make a Reservation
+      </button>
+    </section>
+
+    <!-- Contact Section -->
+    <section aria-labelledby="contact-title" class="bg-gray-50 py-24 px-5 max-w-[1200px] mx-auto reveal" id="contact" tabindex="0">
+      <h2 class="text-4xl font-extrabold mb-12 text-center text-red-600" id="contact-title">
+        Contact Us
+      </h2>
+      
+      <div class="flex flex-wrap gap-12">
+        <div class="flex-1 min-w-[300px] pr-6">
+          <h3 class="text-2xl font-semibold mb-6">
+            Get in Touch
+          </h3>
+          
+          <p class="text-lg leading-relaxed mb-8">
+            We'd love to hear from you. Feel free to reach out with any
+            questions or to make a reservation.
+          </p>
+          
+          <p class="text-lg leading-relaxed mb-6 flex items-center gap-3">
+            <i aria-hidden="true" class="fas fa-map-marker-alt text-red-600 w-6"></i>
+            123 Main Street, Dhaka, Bangladesh 1207
+          </p>
+          
+          <p class="text-lg leading-relaxed mb-6 flex items-center gap-3">
+            <i aria-hidden="true" class="fas fa-phone-alt text-red-600 w-6"></i>
+            (880) 1234-567890
+          </p>
+          
+          <p class="text-lg leading-relaxed mb-10 flex items-center gap-3">
+            <i aria-hidden="true" class="fas fa-envelope text-red-600 w-6"></i>
+            info@savoriarestaurant.com
+          </p>
+          
+          <form aria-label="Contact form" class="space-y-5" id="contactFormEl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <input aria-required="true" class="w-full p-4 border border-gray-300 rounded-md text-lg focus:outline-none focus:border-red-600 focus:shadow-md" id="nameInput" placeholder="Your Name" required="" type="text">
+              <input aria-required="true" class="w-full p-4 border border-gray-300 rounded-md text-lg focus:outline-none focus:border-red-600 focus:shadow-md" id="emailInput" placeholder="Your Email" required="" type="email">
+            </div>
+            <input aria-required="true" class="w-full p-4 border border-gray-300 rounded-md text-lg focus:outline-none focus:border-red-600 focus:shadow-md" id="subjectInput" placeholder="Subject" required="" type="text">
+            <textarea aria-required="true" class="w-full p-4 border border-gray-300 rounded-md text-lg focus:outline-none focus:border-red-600 focus:shadow-md" id="messageInput" placeholder="Your Message" required="" rows="5"></textarea>
+            <button aria-label="Send Message" class="bg-red-600 hover:bg-red-700 transition-colors text-white font-semibold py-3 px-10 rounded-full shadow-lg cursor-pointer focus:outline-none focus:ring-4 focus:ring-red-400" type="submit" id="submitContactBtn">
+              Send Message
+            </button>
+          </form>
+        </div>
+        
+        <div class="flex-1 min-w-[300px] h-[450px] rounded-xl shadow-lg overflow-hidden">
+          <img alt="Map of Dhaka city showing the location of the Savoria restaurant marked with a red pin" class="w-full h-full object-cover" height="450" loading="lazy" src="https://storage.googleapis.com/a1aa/image/7d11932d-214f-4de5-7a72-1c1c0addd718.jpg" width="600">
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-14 px-5">
+      <div class="max-w-[1200px] mx-auto flex flex-wrap justify-between gap-12">
+        <div class="flex-1 min-w-[200px]">
+          <h3 class="text-2xl font-extrabold mb-6">
+            SAVORIA
+          </h3>
+          <p class="leading-relaxed">
+            Experience the art of Bangladeshi & Chinese fine dining in the
+            heart of Dhaka.
+          </p>
+          <div class="mt-6">
+            <a href="#" class="inline-block px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors duration-300">
+              <i class="fas fa-utensils mr-2"></i> Order Online
+            </a>
+          </div>
+        </div>
+        
+        <div class="flex-1 min-w-[200px]">
+          <h3 class="text-xl font-semibold mb-6">
+            Quick Links
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a class="text-gray-300 hover:text-red-600 transition-colors" href="#home">
+                Home
+              </a>
+            </li>
+            <li>
+              <a class="text-gray-300 hover:text-red-600 transition-colors" href="#about">
+                About
+              </a>
+            </li>
+            <li>
+              <a class="text-gray-300 hover:text-red-600 transition-colors" href="#menu">
+                Menu
+              </a>
+            </li>
+            <li>
+              <a class="text-gray-300 hover:text-red-600 transition-colors" href="#contact">
+                Contact
+              </a>
+            </li>
+            <li>
+              <button id="footerReservationBtn" class="text-gray-300 hover:text-red-600 transition-colors">
+                Reservations
+              </button>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="flex-1 min-w-[200px]">
+          <h3 class="text-xl font-semibold mb-6">
+            Follow Us
+          </h3>
+          <div class="flex flex-wrap gap-6 text-lg">
+            <a class="text-white hover:text-red-600 transition-colors flex items-center gap-2" href="#">
+              <i aria-hidden="true" class="fab fa-facebook-f"></i>
+              <span>Facebook</span>
+            </a>
+            <a class="text-white hover:text-red-600 transition-colors flex items-center gap-2" href="#">
+              <i aria-hidden="true" class="fab fa-instagram"></i>
+              <span>Instagram</span>
+            </a>
+            <a class="text-white hover:text-red-600 transition-colors flex items-center gap-2" href="#">
+              <i aria-hidden="true" class="fab fa-twitter"></i>
+              <span>X</span>
+            </a>
+            <a class="text-white hover:text-red-600 transition-colors flex items-center gap-2" href="#">
+              <i aria-hidden="true" class="fab fa-youtube"></i>
+              <span>YouTube</span>
+            </a>
+          </div>
+          <div class="mt-6">
+            <h4 class="text-lg font-semibold mb-2">Subscribe to our newsletter</h4>
+            <form id="newsletterForm" class="flex">
+              <input type="email" placeholder="Your email" required class="p-2 rounded-l-md w-full">
+              <button type="submit" class="bg-red-600 text-white px-4 rounded-r-md hover:bg-red-700 transition-colors">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="max-w-[1200px] mx-auto mt-12 pt-6 border-t border-gray-700 text-center text-gray-400 text-sm">
+        <p>
+          Â© 2025 Savoria Restaurant. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Reservation Modal -->
+  <div id="reservationModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h2 class="text-3xl font-bold mb-6 text-red-600">Make a Reservation</h2>
+      <form id="reservationForm" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <input type="text" placeholder="Full Name" required class="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:border-red-600">
+          <input type="email" placeholder="Email" required class="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:border-red-600">
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <input type="tel" placeholder="Phone Number" required class="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:border-red-600">
+          <input type="number" placeholder="Number of Guests" min="1" max="20" required class="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:border-red-600">
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <input type="date" required class="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:border-red-600">
+          <input type="time" required class="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:border-red-600">
+        </div>
+        <textarea placeholder="Special Requests (Optional)" rows="3" class="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:border-red-600"></textarea>
+        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-lg font-semibold transition-colors">
+          Confirm Reservation
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Food Detail Modal -->
+  <div id="foodDetailModal" class="food-detail-modal">
+    <div class="food-detail-content">
+      <span class="close-food-detail" id="closeFoodDetail">&times;</span>
+      <div class="food-detail-header">
+        <img id="foodDetailImage" src="" alt="">
+        <div class="food-detail-header-overlay">
+          <h2 id="foodDetailTitle" class="text-3xl font-bold"></h2>
+          <div class="flex items-center mt-2">
+            <span id="foodDetailPrice" class="text-xl font-semibold bg-red-600 px-3 py-1 rounded-lg"></span>
+            <span id="foodDetailCuisine" class="ml-3 text-sm bg-white bg-opacity-20 px-2 py-1 rounded-full"></span>
+          </div>
+        </div>
+      </div>
+      <div class="food-detail-body">
+        <div class="food-detail-tabs">
+          <div class="food-detail-tab active" data-tab="description">Description</div>
+          <div class="food-detail-tab" data-tab="ingredients">Ingredients</div>
+          <div class="food-detail-tab" data-tab="nutrition">Nutrition</div>
+          <div class="food-detail-tab" data-tab="tips">Hygiene & Tips</div>
+        </div>
+        
+        <div id="descriptionTab" class="food-detail-section active">
+          <p id="foodDetailDescription" class="text-gray-700 leading-relaxed"></p>
+          <div class="mt-8">
+            <h3 class="text-xl font-semibold mb-3">Origin & History</h3>
+            <p id="foodDetailOrigin" class="text-gray-700 leading-relaxed"></p>
+          </div>
+          <div class="mt-8">
+            <h3 class="text-xl font-semibold mb-3">Preparation Method</h3>
+            <p id="foodDetailPreparation" class="text-gray-700 leading-relaxed"></p>
+          </div>
+        </div>
+        
+        <div id="ingredientsTab" class="food-detail-section">
+          <h3 class="text-xl font-semibold mb-3">Main Ingredients</h3>
+          <div id="foodDetailIngredients" class="ingredients-list"></div>
+          
+          <div class="mt-8">
+            <h3 class="text-xl font-semibold mb-3">Spices & Seasonings</h3>
+            <div id="foodDetailSpices" class="ingredients-list"></div>
+          </div>
+          
+          <div class="mt-8">
+            <h3 class="text-xl font-semibold mb-3">Allergen Information</h3>
+            <p id="foodDetailAllergens" class="text-gray-700"></p>
+          </div>
+        </div>
+        
+        <div id="nutritionTab" class="food-detail-section">
+          <h3 class="text-xl font-semibold mb-4">Nutritional Information</h3>
+          <p class="text-sm text-gray-500 mb-4">Per serving</p>
+          
+          <div id="foodDetailNutrition" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Nutritional items will be populated here -->
+          </div>
+          
+          <div class="mt-8">
+            <h3 class="text-xl font-semibold mb-3">Dietary Information</h3>
+            <p id="foodDetailDietary" class="text-gray-700"></p>
+          </div>
+        </div>
+        
+        <div id="tipsTab" class="food-detail-section">
+          <h3 class="text-xl font-semibold mb-3">Hygiene Tips</h3>
+          <ul id="foodDetailHygiene" class="list-disc pl-5 space-y-2 text-gray-700"></ul>
+          
+          <div class="mt-8">
+            <h3 class="text-xl font-semibold mb-3">Storage Recommendations</h3>
+            <p id="foodDetailStorage" class="text-gray-700"></p>
+          </div>
+          
+          <div class="mt-8">
+            <h3 class="text-xl font-semibold mb-3">Serving Suggestions</h3>
+            <p id="foodDetailServing" class="text-gray-700"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="toast">
+    <i id="toastIcon" class="fas fa-check-circle text-2xl"></i>
+    <div>
+      <div id="toastTitle" class="font-bold"></div>
+      <div id="toastMessage"></div>
+    </div>
+  </div>
+
+  <!-- WhatsApp Chatbot -->
+  <div class="chatbot-button" id="chatbotButton">
+    <i class="fab fa-whatsapp"></i>
+  </div>
+
+  <div class="chatbot-container" id="chatbotContainer">
+    <div class="chatbot-header">
+      <div>Savoria Chat Support</div>
+      <div id="closeChatbot" style="cursor:pointer">Ã</div>
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages">
+      <!-- Messages will be added here dynamically -->
+    </div>
+    <div class="chatbot-input-container">
+      <input type="text" placeholder="Type your message..." class="chatbot-input" id="chatbotInput">
+      <button class="chatbot-send" id="chatbotSend">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Initialize EmailJS
+    (function() {
+      emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+    })();
+
+    // Mobile menu toggle
+    const menuToggleBtn = document.getElementById("menuToggleBtn");
+    const menuLinksEl = document.getElementById("menuLinksEl");
+    const mobileMenu = document.getElementById("mobileMenu");
+    
+    menuToggleBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+      menuToggleBtn.innerHTML = mobileMenu.classList.contains("hidden") ? 
+        '<i class="fas fa-bars"></i>' : 
+        '<i class="fas fa-times"></i>';
+    });
+
+    // Menu category tabs
+    const categoryBtns = document.querySelectorAll(".category-btn");
+    const menuCategories = document.querySelectorAll(".menu-category");
+
+    categoryBtns.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        // Remove active class from all buttons
+        categoryBtns.forEach((b) => {
+          b.classList.remove("active");
+          b.classList.remove("border-red-600");
+          b.classList.add("border-transparent");
+          b.classList.remove("text-red-600");
+          b.classList.add("text-gray-700");
+          b.setAttribute("aria-selected", "false");
+        });
+        
+        // Hide all menu categories
+        menuCategories.forEach((c) => (c.style.display = "none"));
+
+        // Add active class to clicked button
+        this.classList.add("active");
+        this.classList.remove("border-transparent");
+        this.classList.add("border-red-600");
+        this.classList.remove("text-gray-700");
+        this.classList.add("text-red-600");
+        this.setAttribute("aria-selected", "true");
+
+        // Show the corresponding menu category
+        const category = this.getAttribute("data-category");
+        document.getElementById(`${category}Menu`).style.display = "grid";
+      });
+    });
+
+    // Contact form submission with EmailJS
+    const contactFormEl = document.getElementById("contactFormEl");
+    contactFormEl.addEventListener("submit", function (e) {
+      e.preventDefault();
+      
+      document.getElementById("submitContactBtn").innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      document.getElementById("submitContactBtn").disabled = true;
+      
+      const templateParams = {
+        from_name: document.getElementById("nameInput").value,
+        from_email: document.getElementById("emailInput").value,
+        subject: document.getElementById("subjectInput").value,
+        message: document.getElementById("messageInput").value
+      };
+      
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function(response) {
+          showToast('Message Sent!', 'We will get back to you soon.', 'success');
+          contactFormEl.reset();
+          document.getElementById("submitContactBtn").innerHTML = 'Send Message';
+          document.getElementById("submitContactBtn").disabled = false;
+        }, function(error) {
+          showToast('Error', 'Failed to send message. Please try again.', 'error');
+          document.getElementById("submitContactBtn").innerHTML = 'Send Message';
+          document.getElementById("submitContactBtn").disabled = false;
+        });
+    });
+
+    // Reservation form functionality
+    const reservationBtns = [
+      document.getElementById("reservationBtn"),
+      document.getElementById("mobileReservationBtn"),
+      document.getElementById("heroReservationBtn"),
+      document.getElementById("hoursReservationBtn"),
+      document.getElementById("footerReservationBtn")
+    ];
+    
+    const reservationModal = document.getElementById("reservationModal");
+    const closeModal = document.getElementById("closeModal");
+    const reservationForm = document.getElementById("reservationForm");
+    
+    reservationBtns.forEach(btn => {
+      if (btn) {
+        btn.addEventListener("click", () => {
+          reservationModal.style.display = "flex";
+        });
+      }
+    });
+    
+    closeModal.addEventListener("click", () => {
+      reservationModal.style.display = "none";
+    });
+    
+    window.addEventListener("click", (e) => {
+      if (e.target === reservationModal) {
+        reservationModal.style.display = "none";
+      }
+    });
+    
+    reservationForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(this);
+      const formValues = Object.fromEntries(formData.entries());
+      
+      // Send reservation with EmailJS
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_RESERVATION_TEMPLATE_ID', formValues)
+        .then(function(response) {
+          showToast('Reservation Confirmed!', 'We look forward to serving you.', 'success');
+          reservationForm.reset();
+          reservationModal.style.display = "none";
+          
+          // Send auto-confirmation email to guest
+          sendAutoConfirmation(formValues.email, formValues);
+        }, function(error) {
+          showToast('Error', 'Failed to make reservation. Please try again.', 'error');
+        });
+    });
+    
+    function sendAutoConfirmation(email, details) {
+      // This would send an auto-confirmation email to the guest
+      const confirmationParams = {
+        to_email: email,
+        to_name: details.name,
+        reservation_date: details.date,
+        reservation_time: details.time,
+        guests: details.guests
+      };
+      
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_CONFIRMATION_TEMPLATE_ID', confirmationParams);
+    }
+
+    // Newsletter form
+    const newsletterForm = document.getElementById("newsletterForm");
+    newsletterForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = this.querySelector('input[type="email"]').value;
+      
+      // Send subscription request with EmailJS
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_NEWSLETTER_TEMPLATE_ID', { subscriber_email: email })
+        .then(function(response) {
+          showToast('Subscribed!', 'You have been added to our newsletter.', 'success');
+          newsletterForm.reset();
+        }, function(error) {
+          showToast('Error', 'Failed to subscribe. Please try again.', 'error');
+        });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener("scroll", function () {
+      const navbar = document.getElementById("navbarEl");
+      if (window.scrollY > 50) {
+        navbar.classList.add("bg-opacity-90", "py-2");
+        navbar.classList.remove("bg-opacity-70", "py-4");
+      } else {
+        navbar.classList.add("bg-opacity-70", "py-4");
+        navbar.classList.remove("bg-opacity-90", "py-2");
+      }
+    });
+
+    // Scroll reveal for sections
+    const revealElements = document.querySelectorAll(".reveal");
+    function revealOnScroll() {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach((el) => {
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) {
+          el.classList.add("active");
+        }
+      });
+    }
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+
+    // Toast notification system
+    function showToast(title, message, type = 'success') {
+      const toast = document.getElementById('toastNotification');
+      const toastTitle = document.getElementById('toastTitle');
+      const toastMessage = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+      
+      toastTitle.textContent = title;
+      toastMessage.textContent = message;
+      
+      if (type === 'success') {
+        toast.classList.remove('error');
+        toastIcon.className = 'fas fa-check-circle text-2xl';
+      } else {
+        toast.classList.add('error');
+        toastIcon.className = 'fas fa-exclamation-circle text-2xl';
+      }
+      
+      toast.classList.add('show');
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 5000);
+    }
+
+    // WhatsApp Chatbot Functionality
+    const chatbotButton = document.getElementById('chatbotButton');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const closeChatbot = document.getElementById('closeChatbot');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const chatbotSend = document.getElementById('chatbotSend');
+
+    chatbotButton.addEventListener('click', () => {
+      chatbotContainer.style.display = 'flex';
+      
+      // Show welcome message if this is the first time opening
+      if (chatbotMessages.children.length === 0) {
+        addBotMessage("ð Welcome to Savoria Restaurant! How can I help you today?");
+        
+        // Add quick reply buttons
+        const quickReplies = document.createElement('div');
+        quickReplies.className = 'flex flex-wrap gap-2 mt-3';
+        
+        const replyOptions = [
+          { text: "Hours", handler: () => handleUserInput("What are your hours?") },
+          { text: "Menu", handler: () => handleUserInput("Show me the menu") },
+          { text: "Reservation", handler: () => handleUserInput("I want to make a reservation") },
+          { text: "Location", handler: () => handleUserInput("Where are you located?") }
+        ];
+        
+        replyOptions.forEach(option => {
+          const button = document.createElement('button');
+          button.textContent = option.text;
+          button.className = 'bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded-full text-sm';
+          button.onclick = option.handler;
+          quickReplies.appendChild(button);
+        });
+        
+        chatbotMessages.appendChild(quickReplies);
+      }
+    });
+
+    closeChatbot.addEventListener('click', () => {
+      chatbotContainer.style.display = 'none';
+    });
+
+    chatbotSend.addEventListener('click', sendMessage);
+    chatbotInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+
+    function sendMessage() {
+      const message = chatbotInput.value.trim();
+      if (message) {
+        addUserMessage(message);
+        handleUserInput(message);
+        chatbotInput.value = '';
+      }
+    }
+
+    function addUserMessage(message) {
+      const messageElement = document.createElement('div');
+      messageElement.className = 'message user-message';
+      messageElement.textContent = message;
+      chatbotMessages.appendChild(messageElement);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function addBotMessage(message) {
+      const messageElement = document.createElement('div');
+      messageElement.className = 'message bot-message';
+      messageElement.textContent = message;
+      chatbotMessages.appendChild(messageElement);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function handleUserInput(message) {
+      const lowerMessage = message.toLowerCase();
+      
+      // Simulate typing
+      setTimeout(() => {
+        if (lowerMessage.includes('reservation') || lowerMessage.includes('book') || lowerMessage.includes('table')) {
+          addBotMessage("I'd be happy to help you make a reservation. You can reserve a table through our website by clicking the 'Reserve Now' button, or I can help you do it here. Would you like to make a reservation now?");
+          
+          // Add Yes/No buttons
+          const buttonsDiv = document.createElement('div');
+          buttonsDiv.className = 'flex gap-2 mt-2';
+          
+          const yesBtn = document.createElement('button');
+          yesBtn.textContent = 'Yes, make reservation';
+          yesBtn.className = 'bg-red-600 text-white px-3 py-1 rounded-md text-sm';
+          yesBtn.onclick = () => {
+            reservationModal.style.display = "flex";
+            addBotMessage("Great! I've opened our reservation form for you. Please fill in your details.");
+          };
+          
+          const noBtn = document.createElement('button');
+          noBtn.textContent = 'Not now';
+          noBtn.className = 'bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded-md text-sm';
+          noBtn.onclick = () => {
+            addBotMessage("No problem! If you have any other questions, feel free to ask.");
+          };
+          
+          buttonsDiv.appendChild(yesBtn);
+          buttonsDiv.appendChild(noBtn);
+          chatbotMessages.appendChild(buttonsDiv);
+          
+        } else if (lowerMessage.includes('menu') || lowerMessage.includes('food') || lowerMessage.includes('eat')) {
+          addBotMessage("Our menu features a variety of Bangladeshi and Chinese dishes. You can view our full menu on our website. Would you like me to tell you about our specialties?");
+          
+        } else if (lowerMessage.includes('hour') || lowerMessage.includes('open') || lowerMessage.includes('time')) {
+          addBotMessage("We're open for lunch Monday to Friday from 11:30 AM to 2:30 PM. For dinner, we're open Monday to Thursday from 5:00 PM to 10:00 PM, Friday and Saturday from 5:00 PM to 11:00 PM, and Sunday from 5:00 PM to 9:00 PM.");
+          
+        } else if (lowerMessage.includes('location') || lowerMessage.includes('address') || lowerMessage.includes('where')) {
+          addBotMessage("We're located at 123 Main Street, Dhaka, Bangladesh 1207. You can find directions on our website or feel free to ask for more specific guidance!");
+          
+        } else if (lowerMessage.includes('contact') || lowerMessage.includes('phone') || lowerMessage.includes('email')) {
+          addBotMessage("You can reach us by phone at (880) 1234-567890 or by email at info@savoriarestaurant.com. You can also send us a message through the contact form on our website.");
+          
+        } else if (lowerMessage.includes('thank')) {
+          addBotMessage("You're welcome! Is there anything else I can help you with?");
+          
+        } else if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage === 'hey') {
+          addBotMessage("Hello! Welcome to Savoria Restaurant. How can I assist you today?");
+          
+        } else {
+          addBotMessage("I'm not sure I understand. Can you please rephrase or choose from one of these topics: our menu, making a reservation, our hours, or our location?");
+        }
+      }, 600); // Slight delay to simulate typing
+    }
+
+    // Food Menu Items Data
+    const menuItemsData = {
+      // Starters
+      "fuchka": {
+        name: "Fuchka",
+        price: "$5",
+        image: "https://storage.googleapis.com/a1aa/image/6f63271b-d270-4db6-ad4f-cfa063a6be3c.jpg",
+        cuisine: "Bangladeshi",
+        description: "Fuchka is a popular Bangladeshi street food consisting of hollow, crispy puri filled with a mixture of flavored water, tamarind chutney, and chickpeas. This savory snack offers an explosion of flavors in each bite.",
+        origin: "Fuchka originated in the Bengal region, now spanning Bangladesh and parts of India. It is believed to have evolved from similar snacks in the region over centuries. Today, it's a beloved street food found in almost every corner of Bangladesh.",
+        preparation: "Our chefs prepare Fuchka by first making the perfect crispy shell from semolina flour. The shells are then filled with a spiced mixture of mashed potatoes and yellow peas. We serve it with tangy tamarind water seasoned with mint, coriander, and secret spices that have been in our chef's family for generations.",
+        ingredients: ["Semolina flour", "Potatoes", "Yellow peas", "Tamarind pulp", "Red onions", "Green chilies"],
+        spices: ["Cumin", "Coriander", "Chaat masala", "Black salt", "Mint leaves", "Cilantro"],
+        allergens: "Contains gluten (wheat). May contain traces of nuts. Our tamarind chutney contains small amounts of sugar.",
+        nutritionalInfo: {
+          calories: "180 kcal",
+          protein: "5g",
+          carbs: "32g",
+          fats: "3g",
+          sodium: "410mg",
+          fiber: "4g",
+          sugar: "6g"
+        },
+        dietary: "Vegetarian. Can be made vegan upon request (we'll omit the yogurt-based sauces). Low in fat but contains moderate sodium levels.",
+        hygieneTips: [
+          "Always consume Fuchka immediately after it's served for the best texture and flavor experience.",
+          "The tamarind water is prepared with purified water to ensure safety.",
+          "If you have a sensitive stomach, ask for less spicy water.",
+          "Due to the nature of the dish, it's best enjoyed in-house rather than as takeaway."
+        ],
+        storage: "Fuchka is meant to be consumed fresh. The crispy shells become soggy when stored, so we prepare each order on demand. If you must store leftovers, keep the shells, filling, and water separate in refrigerated containers and consume within 12 hours.",
+        serving: "Traditionally eaten by hand. Fill each puri with the tamarind water just before eating for the perfect balance of crispy and juicy textures. Best enjoyed with friends and family as a shared appetizer."
+      },
+      "chicken-chili": {
+        name: "Chicken Chili",
+        price: "$8",
+        image: "https://storage.googleapis.com/a1aa/image/62ede99c-5c28-4f88-13af-5e6888e50451.jpg",
+        cuisine: "Bangladeshi-Chinese Fusion",
+        description: "Our Chicken Chili is a fiery and flavorful dish featuring tender pieces of chicken stir-fried with green chilies, bell peppers, and onions in a spicy sauce. This Bangladeshi-Chinese fusion dish will tantalize your taste buds with its perfect balance of heat and savory flavors.",
+        origin: "Chicken Chili is a popular Indo-Chinese dish that evolved from Chinese cooking techniques adapted to Bangladeshi and Indian tastes. It emerged from the Chinese communities in Kolkata in the early 20th century and has since become a staple in Bangladeshi-Chinese cuisine.",
+        preparation: "We marinate premium chicken pieces in a special blend of soy sauce, ginger, and garlic. The chicken is then stir-fried at high heat with fresh green chilies, bell peppers, and onions. Our chef's secret spicy sauce is added at the end to create a glossy, flavorful coating that clings to every piece of chicken.",
+        ingredients: ["Free-range chicken breast", "Green chilies", "Bell peppers", "Red onions", "Spring onions", "Garlic"],
+        spices: ["Soy sauce", "Chili paste", "Ginger", "White pepper", "Sesame oil", "Rice vinegar"],
+        allergens: "Contains soy, gluten, and sesame. Prepared in a kitchen that handles nuts, dairy, and shellfish.",
+        nutritionalInfo: {
+          calories: "290 kcal",
+          protein: "26g",
+          carbs: "12g",
+          fats: "15g",
+          sodium: "620mg",
+          fiber: "2g",
+          sugar: "4g"
+        },
+        dietary: "High in protein. Contains moderate levels of sodium. Gluten-free options available upon request (we'll use tamari instead of soy sauce).",
+        hygieneTips: [
+          "We use separate cutting boards and knives for our meat preparations to prevent cross-contamination.",
+          "Our chicken is sourced from trusted suppliers and kept at proper temperatures at all times.",
+          "Each batch of Chicken Chili is cooked to an internal temperature of 165Â°F (74Â°C) to ensure safety.",
+          "If you're sensitive to spice, please let us know - we can adjust the heat level to your preference."
+        ],
+        storage: "Best enjoyed fresh. If taking home, refrigerate within two hours of serving and consume within 2 days. Reheat thoroughly to an internal temperature of 165Â°F (74Â°C) before consuming.",
+        serving: "Served hot, garnished with freshly chopped spring onions. Pairs excellently with steamed rice or noodles. For an authentic experience, eat with chopsticks to savor each piece of chicken with its flavorful coating."
+      },
+      "spring-rolls": {
+        name: "Vegetable Spring Rolls",
+        price: "$6",
+        image: "https://storage.googleapis.com/a1aa/image/96a8a78f-4554-4214-db58-5639ca90fcbb.jpg",
+        cuisine: "Chinese",
+        description: "Our Vegetable Spring Rolls are crispy golden parcels filled with a delicate mixture of fresh vegetables and aromatic herbs. Each bite offers a perfect balance of crunch and flavor, making them an ideal starter to your meal.",
+        origin: "Spring rolls originated in China as a seasonal food consumed during the spring festival. They symbolized wealth and prosperity due to their gold-like appearance. The dish spread throughout Asia, with each region developing its own variations.",
+        preparation: "Our chefs finely julienne carrots, cabbage, and bell peppers before lightly stir-frying them with garlic and ginger. The vegetable mixture is cooled, seasoned, and wrapped in thin pastry sheets. Each roll is then carefully deep-fried until golden and crispy, ensuring a perfect texture contrast between the crunchy exterior and tender filling.",
+        ingredients: ["Cabbage", "Carrots", "Bell peppers", "Bean sprouts", "Mushrooms", "Spring onions"],
+        spices: ["Garlic", "Ginger", "White pepper", "Sesame oil", "Soy sauce", "Chinese five spice"],
+        allergens: "Contains gluten, soy, and sesame. Made in a kitchen that processes nuts, dairy, and shellfish.",
+        nutritionalInfo: {
+          calories: "210 kcal",
+          protein: "4g",
+          carbs: "28g",
+          fats: "10g",
+          sodium: "380mg",
+          fiber: "3g",
+          sugar: "2g"
+        },
+        dietary: "Vegetarian. Vegan-friendly (our wrappers don't contain egg). Moderate in calories and fat due to the frying process.",
+        hygieneTips: [
+          "Our spring rolls are fried in clean oil that is regularly changed to ensure quality and safety.",
+          "All vegetables are thoroughly washed before preparation.",
+          "We maintain strict temperature control during frying to ensure food safety.",
+          "Our dipping sauces are made fresh daily and stored properly."
+        ],
+        storage: "Spring rolls are best enjoyed immediately while crispy. If taking home, store in a paper-lined container (not airtight plastic) and reheat in an oven at 350Â°F for 5-10 minutes to restore crispness. Consume within 24 hours.",
+        serving: "Served with our house-made sweet chili sauce and a small side of pickled vegetables. For the best experience, dip lightly in the sauce to maintain the roll's crispiness. Perfect for sharing as an appetizer."
+      },
+      "shutki-bhuna": {
+        name: "Shutki Bhuna",
+        price: "$9",
+        image: "https://storage.googleapis.com/a1aa/image/dde3603a-53a1-4727-cb6b-24b074078fd3.jpg",
+        cuisine: "Traditional Bangladeshi",
+        description: "Shutki Bhuna is a robustly flavored traditional Bangladeshi dish made from dried fish cooked with a rich blend of spices, onions, and chilies. This authentic delicacy offers an intense umami flavor with a pleasant spicy kick that represents the heart of Bangladeshi coastal cuisine.",
+        origin: "Shutki (dried fish) has been a staple in Bangladeshi coastal and riverine communities for centuries. The preservation technique developed as a practical solution for storing fish during monsoon seasons when fishing was difficult. Shutki Bhuna evolved as a way to transform this preserved protein into a delicious dish using local spices and cooking techniques.",
+        preparation: "We carefully select quality dried fish, which is thoroughly cleaned and soaked to achieve the perfect texture. It's then slow-cooked with caramelized onions, garlic, ginger, and a blend of traditional spices. The long cooking process allows the flavors to meld together, creating a dish with deep complexity and authentic taste.",
+        ingredients: ["Premium dried fish (Loitta/Bombay duck)", "Red onions", "Tomatoes", "Green chilies", "Garlic", "Ginger"],
+        spices: ["Mustard oil", "Turmeric", "Red chili powder", "Cumin", "Coriander", "Bay leaf"],
+        allergens: "Contains fish. Prepared in a kitchen that handles shellfish, gluten, nuts, and dairy. Cooked with mustard oil which may affect those with mustard allergies.",
+        nutritionalInfo: {
+          calories: "220 kcal",
+          protein: "24g",
+          carbs: "14g",
+          fats: "8g",
+          sodium: "580mg",
+          fiber: "3g",
+          sugar: "5g"
+        },
+        dietary: "High in protein. Contains omega-3 fatty acids from the fish. Relatively low in carbohydrates. High in sodium due to the preservation process of the fish.",
+        hygieneTips: [
+          "We source our dried fish from trusted suppliers who follow proper drying and preservation techniques.",
+          "The cooking process involves high heat which ensures any potential harmful bacteria are eliminated.",
+          "People with hypertension should be mindful of the sodium content in this dish.",
+          "Due to its strong aroma, this dish is prepared in a separate section of our kitchen."
+        ],
+        storage: "Can be refrigerated for up to 3 days. The flavor often improves after a day as spices continue to meld. Reheat thoroughly before consuming. Not suitable for freezing as it can affect the texture of the fish.",
+        serving: "Traditionally served with steamed rice. A small portion goes a long way due to its intense flavor. We recommend pairing it with some yogurt or a cooling cucumber salad to balance the spice and richness."
+      },
+
+      // Main Courses
+      "hilsha-curry": {
+        name: "Hilsha Fish Curry",
+        price: "$18",
+        image: "https://storage.googleapis.com/a1aa/image/fb0a03d7-30f8-477d-a7ff-c9501504fa77.jpg",
+        cuisine: "Bangladeshi",
+        description: "Hilsha Fish Curry is the crown jewel of Bangladeshi cuisine. Our preparation features premium Hilsha fish (Bangladesh's national fish) cooked in a rich, tangy mustard-infused curry. The delicate fish is complemented by the robust flavors of mustard seeds, turmeric, and green chilies, creating a truly authentic dining experience.",
+        origin: "Hilsha fish (Tenualosa ilisha) has been cherished in Bengali culture for centuries. It holds cultural significance in Bangladesh, where it's considered the national fish. The mustard-based preparation is traditional to the Bengal region, combining the bounty of rivers with the agricultural heritage of mustard cultivation.",
+        preparation: "We source fresh Hilsha directly from trusted fishermen. The fish is carefully cleaned while preserving its natural oils. It's then marinated with turmeric and salt before being gently simmered in a specially prepared mustard sauce. The curry is slow-cooked to allow the fish to absorb the flavors while maintaining its tender texture.",
+        ingredients: ["Fresh Hilsha fish", "Yellow mustard seeds", "Green chilies", "Turmeric", "Nigella seeds (kalonji)", "Mustard oil"],
+        spices: ["Red chili powder", "Cumin", "Coriander", "Fenugreek seeds", "Fresh cilantro", "Curry leaves"],
+        allergens: "Contains fish and mustard. Prepared in a kitchen that handles shellfish, nuts, gluten, and dairy products.",
+        nutritionalInfo: {
+          calories: "320 kcal",
+          protein: "28g",
+          carbs: "6g",
+          fats: "22g",
+          sodium: "480mg",
+          fiber: "2g",
+          sugar: "1g"
+        },
+        dietary: "High in healthy omega-3 fatty acids. Naturally gluten-free. Rich in protein. Low in carbohydrates. Contains moderate sodium.",
+        hygieneTips: [
+          "We inspect each Hilsha fish for freshness before preparation.",
+          "The curry is cooked to an appropriate temperature to ensure safety while preserving the delicate texture of the fish.",
+          "Be mindful of small bones which are characteristic of Hilsha fish - we do our best to remove the major ones, but some small bones may remain.",
+          "Due to its oil content, Hilsha is best consumed fresh - we prepare each order individually."
+        ],
+        storage: "Best enjoyed fresh. If storing, refrigerate within 2 hours and consume within 24 hours. Reheat gently to avoid overcooking the fish. Not recommended for freezing as it affects the texture of the fish.",
+        serving: "Traditionally served with steamed rice. The curry should be spooned over the rice to allow the flavors to meld. Enjoy with a side of fresh green chilies for an authentic Bangladeshi dining experience."
+      },
+      "beef-chili": {
+        name: "Beef Chili",
+        price: "$20",
+        image: "https://storage.googleapis.com/a1aa/image/d7d71574-fc22-4423-be3a-dd6bc916e793.jpg",
+        cuisine: "Bangladeshi-Chinese Fusion",
+        description: "Our Beef Chili is a hearty and spicy dish featuring tender strips of premium beef stir-fried with fresh green chilies, bell peppers, and onions in a savory sauce. This Bangladeshi-Chinese fusion delicacy delivers a perfect balance of heat, umami, and texture that will satisfy even the most discerning palates.",
+        origin: "This dish represents the successful marriage of Chinese cooking techniques with Bangladeshi flavors. It emerged from the Chinese communities in South Asia who adapted their cooking to local tastes and ingredients, creating what is now known as 'Deshi Chinese' cuisine - a distinct culinary tradition with its own authentic character.",
+        preparation: "We start with carefully selected tender beef cuts that are marinated with ginger, garlic, and soy sauce. The beef is then quickly stir-fried at high heat to seal in flavors and maintain tenderness. Fresh vegetables and chilies are added and tossed in our house-made sauce, which combines savory, spicy, and slightly sweet notes for a balanced flavor profile.",
+        ingredients: ["Premium beef tenderloin", "Green chilies", "Bell peppers", "Red onions", "Spring onions", "Garlic"],
+        spices: ["Fresh ginger", "Soy sauce", "Oyster sauce", "Chili paste", "Sesame oil", "White pepper"],
+        allergens: "Contains soy, gluten, and sesame. May contain traces of shellfish (from oyster sauce). Prepared in a kitchen that handles nuts and dairy products.",
+        nutritionalInfo: {
+          calories: "360 kcal",
+          protein: "32g",
+          carbs: "14g",
+          fats: "18g",
+          sodium: "680mg",
+          fiber: "3g",
+          sugar: "5g"
+        },
+        dietary: "High in protein. Moderate in fat. Low in carbohydrates. Contains moderate sodium levels due to the soy-based sauce. Can be prepared with less sodium upon request.",
+        hygieneTips: [
+          "Our beef is sourced from trusted suppliers who follow strict quality standards.",
+          "The beef is cooked to an internal temperature of 160Â°F (71Â°C) to ensure safety while maintaining tenderness.",
+          "We use separate cutting boards and utensils for meat preparation to prevent cross-contamination.",
+          "The high-heat cooking method ensures that the dish is safe while preserving the vegetables' nutrients and crunch."
+        ],
+        storage: "Best consumed fresh from our kitchen. If taking home, refrigerate within two hours and consume within 2 days. Reheat thoroughly until steaming hot. The dish can be frozen for up to 1 month, though the texture of the vegetables may change slightly upon thawing.",
+        serving: "Served sizzling hot, garnished with fresh spring onions. Pairs excellently with steamed rice or noodles. For those who enjoy extra heat, we provide a side of our housemade chili oil."
+      },
+      "kung-pao-chicken": {
+        name: "Kung Pao Chicken",
+        price: "$22",
+        image: "https://storage.googleapis.com/a1aa/image/ee9f8ae3-f62f-4108-c579-1b4e83d9d8f9.jpg",
+        cuisine: "Chinese",
+        description: "Our Kung Pao Chicken is a classic Chinese dish featuring tender chicken pieces wok-fried with crunchy peanuts, colorful vegetables, and dried chilies in a perfect balance of spicy, sweet, and savory sauce. Each bite delivers an exciting combination of flavors and textures that exemplifies the complexity of Sichuan cuisine.",
+        origin: "Kung Pao Chicken originated in the Sichuan Province of southwestern China and is named after a late Qing Dynasty official. The dish embodies the 'mala' (numbing and spicy) flavor profile that Sichuan cuisine is famous for, achieved through the use of Sichuan peppercorns and dried chilies.",
+        preparation: "We marinate premium chicken thighs in a mixture of soy sauce, rice wine, and cornstarch to ensure tenderness. The chicken is then stir-fried in a hot wok with dried chilies and Sichuan peppercorns to release their aromatic oils. Vegetables and peanuts are added for texture, and everything is tossed in our house-made Kung Pao sauce that balances spicy, sweet, and tangy notes.",
+        ingredients: ["Free-range chicken thighs", "Roasted peanuts", "Bell peppers", "Zucchini", "Dried red chilies", "Sichuan peppercorns"],
+        spices: ["Soy sauce", "Chinese black vinegar", "Shaoxing wine", "Hoisin sauce", "Garlic", "Ginger"],
+        allergens: "Contains peanuts, soy, and gluten. Prepared in a kitchen that handles other nuts, shellfish, dairy, and sesame products.",
+        nutritionalInfo: {
+          calories: "390 kcal",
+          protein: "30g",
+          carbs: "18g",
+          fats: "22g",
+          sodium: "720mg",
+          fiber: "4g",
+          sugar: "8g"
+        },
+        dietary: "High in protein. Contains healthy fats from peanuts. Moderate in carbohydrates. Can be made gluten-free upon request with tamari instead of soy sauce.",
+        hygieneTips: [
+          "Our chicken is always cooked to an internal temperature of 165Â°F (74Â°C) to ensure safety.",
+          "We use dedicated allergy-safe preparation areas for guests with severe peanut allergies.",
+          "The high-heat wok cooking technique kills potential bacteria while preserving nutrients and flavors.",
+          "If you're sensitive to spice, please let us know - we can adjust the heat level while maintaining the dish's authentic character."
+        ],
+        storage: "Best enjoyed immediately for optimal texture and flavor. If taking home, refrigerate within 2 hours and consume within 2 days. Reheat in a hot skillet rather than microwave to maintain the vegetables' crunch. Not ideal for freezing as it affects the texture of the vegetables and peanuts.",
+        serving: "Traditionally served with steamed rice to balance the bold flavors. Eat with chopsticks to appreciate the varied textures and to pick up the perfect combination of chicken, vegetables, and peanuts in each bite."
+      },
+      "fried-rice": {
+        name: "Fried Rice",
+        price: "$15",
+        image: "https://storage.googleapis.com/a1aa/image/2fca4b36-4b84-41ad-2f40-f41f17cefd08.jpg",
+        cuisine: "Chinese",
+        description: "Our signature Fried Rice is a fragrant and flavorful dish featuring perfectly cooked rice stir-fried with your choice of protein, fresh vegetables, and aromatic seasonings. Each grain is distinct and coated with the essence of the wok, creating a satisfying dish that can be enjoyed as a meal on its own or as the perfect complement to other Chinese dishes.",
+        origin: "Fried rice originated in China as a practical way to use leftover rice. It has evolved over thousands of years, with each region developing its own variations. The technique of wok frying at high heat to achieve 'wok hei' (breath of the wok) is essential to authentic Chinese fried rice, giving it that distinctive smoky aroma.",
+        preparation: "We start with rice that's been properly cooled to achieve the ideal texture. It's then stir-fried in a seasoned wok at extremely high heat with your choice of protein (chicken, beef, shrimp, or mixed vegetables). Eggs are scrambled directly in the wok and tossed with the rice along with finely diced vegetables. Our chefs use quick, precise movements to keep the ingredients in constant motion, creating the perfect fried rice with distinct grains and distributed flavors.",
+        ingredients: ["Jasmine rice", "Eggs", "Choice of protein", "Carrots", "Peas", "Green onions"],
+        spices: ["Soy sauce", "Sesame oil", "White pepper", "Garlic", "Ginger", "Rice wine"],
+        allergens: "Contains eggs, soy, and sesame. May contain shellfish if shrimp option is selected. Prepared in a kitchen that handles nuts, gluten, and dairy products.",
+        nutritionalInfo: {
+          calories: "420 kcal",
+          protein: "18g",
+          carbs: "62g",
+          fats: "12g",
+          sodium: "580mg",
+          fiber: "3g",
+          sugar: "3g"
+        },
+        dietary: "Balanced meal containing protein, carbohydrates, and vegetables. Can be made vegetarian or vegan upon request. Gluten-free option available with tamari instead of soy sauce.",
+        hygieneTips: [
+          "We use fresh rice prepared daily rather than leftover rice to ensure food safety.",
+          "All ingredients reach proper cooking temperatures in the wok to eliminate potential pathogens.",
+          "Our chefs follow strict hygiene protocols when handling raw proteins and eggs.",
+          "Each wok is thoroughly cleaned between preparations to prevent cross-contamination."
+        ],
+        storage: "Best enjoyed fresh for optimal texture and 'wok hei' flavor. If taking home, refrigerate within 2 hours and consume within 2 days. Reheat thoroughly in a hot pan with a little oil to restore some of the texture. Can be frozen for up to 1 month - add a splash of water when reheating frozen fried rice.",
+        serving: "Served in a generous portion that can be shared family-style or enjoyed as an individual meal. Pairs wonderfully with our Chinese main dishes or can be enjoyed on its own. For an authentic experience, eat with chopsticks to appreciate the distinct textures of each ingredient."
+      },
+
+      // Desserts
+      "mishti-doi": {
+        name: "Mishti Doi",
+        price: "$6",
+        image: "https://storage.googleapis.com/a1aa/image/211eb7ef-9d7c-4dc9-3da0-8053848a7b08.jpg",
+        cuisine: "Bengali",
+        description: "Mishti Doi is a beloved Bengali dessert of sweetened, caramelized yogurt with a silky smooth texture and rich, complex flavor. Our version is prepared traditionally by slow-cooking yogurt with caramelized sugar, resulting in a dessert that's subtly sweet with delightful caramel notes and a velvety consistency.",
+        origin: "Mishti Doi (sweet yogurt) has been part of Bengali cuisine for centuries. It originated as a way to preserve milk by fermenting it with previous day's yogurt cultures and sweetening it with local sugar. Traditionally prepared in earthen pots that absorb excess moisture and impart a subtle earthy flavor, it remains a staple dessert throughout Bangladesh and West Bengal.",
+        preparation: "We prepare our Mishti Doi by first caramelizing raw sugar until it develops a deep amber color. This is combined with reduced full-fat milk and natural yogurt culture. The mixture is then traditionally set in terracotta pots and slow-cooked at a low temperature, allowing the cultures to work their magic. The result is a dessert with perfect balance of sweetness, tanginess, and caramel notes.",
+        ingredients: ["Whole milk", "Natural yogurt culture", "Raw cane sugar", "Cardamom"],
+        spices: ["Saffron (garnish)", "Rose water (trace)", "Cardamom"],
+        allergens: "Contains dairy. Prepared in a kitchen that handles nuts, gluten, and eggs.",
+        nutritionalInfo: {
+          calories: "180 kcal",
+          protein: "6g",
+          carbs: "24g",
+          fats: "7g",
+          sodium: "65mg",
+          fiber: "0g",
+          sugar: "24g"
+        },
+        dietary: "Vegetarian. Contains probiotics beneficial for gut health. Natural sugars only - no artificial sweeteners. Good source of calcium and protein. Contains moderate amounts of natural dairy fat.",
+        hygieneTips: [
+          "We use pasteurized milk to ensure safety while maintaining traditional flavor.",
+          "Our yogurt cultures are carefully maintained for consistent quality and safety.",
+          "Mishti Doi is kept refrigerated at all times below 40Â°F (4Â°C).",
+          "Due to its dairy content, please consume within the freshness period for best quality and safety."
+        ],
+        storage: "Best consumed within 3 days of preparation. Keep refrigerated at all times. The flavor often improves after the first day as the cultures continue to develop subtle complexity. Not suitable for freezing as it affects the creamy texture.",
+        serving: "Traditionally served chilled in its terracotta pot. For the authentic experience, enjoy it as is, savoring the contrasting temperatures of the cool yogurt and the room-temperature earthenware. Optionally garnished with a few strands of saffron or crushed pistachios for special occasions."
+      },
+      "rasgulla": {
+        name: "Rasgulla",
+        price: "$7",
+        image: "https://storage.googleapis.com/a1aa/image/8da2bc36-cab5-44b7-8534-c9713811246a.jpg",
+        cuisine: "Bengali",
+        description: "Rasgulla is a beloved Bengali sweet consisting of soft, spongy cheese balls soaked in a light sugar syrup. Our authentic version features handmade chhana (fresh cheese) kneaded to perfection, then carefully shaped and simmered in a delicately flavored syrup, resulting in pillowy-soft spheres that melt in your mouth with a subtle sweetness.",
+        origin: "Rasgulla has a storied history in Bengal region, with both Bangladesh and the Indian state of West Bengal claiming its origin. It became popular in the 19th century and has since become one of the most iconic sweets of Bengali cuisine, often served during celebrations and festivals to symbolize prosperity and joy.",
+        preparation: "We prepare Rasgulla by first making fresh chhana (cheese) from whole milk curdled with lemon juice. The chhana is thoroughly drained, then kneaded until it reaches a smooth, pliable consistency - a crucial step that determines the final texture. Small portions are shaped into balls and gently simmered in a light sugar syrup infused with cardamom. The balls expand and develop their characteristic spongy texture as they absorb the syrup.",
+        ingredients: ["Whole milk", "Lemon juice", "Sugar", "Water", "Rose water"],
+        spices: ["Green cardamom", "Saffron (garnish)"],
+        allergens: "Contains dairy. Prepared in a kitchen that handles nuts, gluten, and eggs.",
+        nutritionalInfo: {
+          calories: "165 kcal",
+          protein: "4g",
+          carbs: "32g",
+          fats: "2g",
+          sodium: "30mg",
+          fiber: "0g",
+          sugar: "30g"
+        },
+        dietary: "Vegetarian. Low in fat. Contains simple carbohydrates from sugar. Good source of calcium from the milk-based cheese. Free from artificial colors or preservatives.",
+        hygieneTips: [
+          "We prepare our chhana (cheese) fresh for each batch to ensure quality and safety.",
+          "The cooking process ensures that the cheese is thoroughly cooked while maintaining its soft texture.",
+          "Rasgulla is stored in its syrup and kept refrigerated at all times.",
+          "Due to its high moisture content, we prepare small batches regularly rather than storing for extended periods."
+        ],
+        storage: "Best consumed within 3-4 days while kept refrigerated in its syrup. The flavor and texture remain consistent during this period. Not recommended for freezing as it can affect the delicate spongy structure.",
+        serving: "Traditionally served chilled or at room temperature, with a small amount of the syrup. Two pieces per serving is customary. For special occasions, we garnish with a few strands of saffron or a light dusting of ground pistachios. Enjoy after a spicy meal to cool and refresh the palate."
+      },
+      "fortune-cookie": {
+        name: "Fortune Cookie",
+        price: "$4",
+        image: "https://storage.googleapis.com/a1aa/image/f3b6e324-511a-4f73-63e0-c2895bad789f.jpg",
+        cuisine: "Chinese-American",
+        description: "Our Fortune Cookies are crisp, golden-brown folded cookies with a hint of vanilla and almond. Each cookie contains a small strip of paper with a fortune â sometimes prophetic, sometimes wise, and sometimes just plain fun. These light, sweet treats provide a playful end to your dining experience.",
+        origin: "Contrary to popular belief, fortune cookies are not traditional Chinese desserts but were invented in California in the early 20th century. They were likely inspired by Japanese senbei (rice crackers) but became associated with Chinese restaurants in America after World War II. Today, they're a familiar and expected conclusion to Chinese-American dining experiences worldwide.",
+        preparation: "Our fortune cookies are made from a thin batter of flour, sugar, vanilla, and a hint of almond extract. The batter is spread into thin circles and baked until the edges turn golden brown. While still hot and pliable, a fortune is placed in the center, and the cookie is quickly folded into its characteristic shape. As it cools, the cookie hardens, trapping the fortune inside until you crack it open to reveal your message.",
+        ingredients: ["Wheat flour", "Sugar", "Vanilla extract", "Almond extract", "Egg whites", "Butter"],
+        spices: ["Vanilla", "Almond extract"],
+        allergens: "Contains wheat, eggs, and tree nuts (almond). Prepared in a kitchen that handles other nuts, dairy, soy, and shellfish.",
+        nutritionalInfo: {
+          calories: "30 kcal",
+          protein: "0.5g",
+          carbs: "7g",
+          fats: "0.5g",
+          sodium: "15mg",
+          fiber: "0g",
+          sugar: "4g"
+        },
+        dietary: "Low in calories and fat. Contains simple carbohydrates from sugar. Not suitable for those with celiac disease or gluten sensitivity due to wheat flour. Contains egg whites, so not suitable for vegans.",
+        hygieneTips: [
+          "Our fortune papers are food-grade and printed with non-toxic ink.",
+          "Fortune cookies are prepared in a clean environment and handled minimally to ensure hygiene.",
+          "Due to their low moisture content, fortune cookies naturally have a good shelf life.",
+          "Each cookie is individually wrapped to maintain freshness and prevent contamination."
+        ],
+        storage: "Fortune cookies can be stored at room temperature in an airtight container for up to 2 months. They do not require refrigeration. In fact, refrigeration may introduce moisture and make them lose their crisp texture. Keep away from humidity to maintain crunchiness.",
+        serving: "Traditionally served at the end of a Chinese meal. The proper way to enjoy a fortune cookie is to crack it open, read your fortune, then enjoy the crisp cookie pieces. In some traditions, the fortune only comes true if you eat the entire cookie after reading it!"
+      },
+
+      // Drinks
+      "masala-chai": {
+        name: "Masala Chai",
+        price: "$3",
+        image: "https://storage.googleapis.com/a1aa/image/b06ea071-5b87-45ad-7096-49ed3d85932a.jpg",
+        cuisine: "South Asian",
+        description: "Our Masala Chai is a fragrant and warming spiced tea prepared with premium black tea leaves and a traditional blend of aromatic spices. Each cup is freshly brewed to order, creating a rich, comforting beverage with complex notes of ginger, cardamom, cinnamon, and cloves, mellowed with creamy milk and lightly sweetened.",
+        origin: "Masala Chai originated in the Indian subcontinent thousands of years ago, initially as an ayurvedic preparation. The addition of tea leaves came after the British introduced tea cultivation to India in the 19th century. Today, chai is an integral part of daily life across South Asia, including Bangladesh, where it's enjoyed throughout the day as a comforting ritual and social beverage.",
+        preparation: "We prepare our chai the traditional way by simmering fresh ginger, cardamom pods, cinnamon, cloves, and black peppercorns in water to extract their essential oils. Strong black tea leaves are then added and brewed to develop a robust flavor. Finally, milk is incorporated and the mixture is gently simmered again before being strained and lightly sweetened. Each cup is prepared individually to ensure optimal freshness and flavor.",
+        ingredients: ["Assam black tea", "Whole milk", "Fresh ginger", "Cardamom pods", "Cinnamon sticks", "Raw cane sugar"],
+        spices: ["Cloves", "Black peppercorns", "Star anise", "Fennel seeds", "Nutmeg (trace)"],
+        allergens: "Contains dairy (milk). Can be prepared with non-dairy alternatives upon request.",
+        nutritionalInfo: {
+          calories: "90 kcal",
+          protein: "3g",
+          carbs: "12g",
+          fats: "3g",
+          sodium: "45mg",
+          fiber: "0g",
+          sugar: "10g"
+        },
+        dietary: "Vegetarian. Contains caffeine (approximately 40mg per serving). Natural sweeteners only - no artificial additives. Can be made vegan with plant-based milk alternatives. Sugar level can be adjusted to preference.",
+        hygieneTips: [
+          "Our chai is prepared fresh for each order and served hot, which ensures safety.",
+          "All spices are stored properly to maintain freshness and prevent contamination.",
+          "The milk is kept refrigerated and is thoroughly heated during preparation.",
+          "We clean our chai preparation equipment thoroughly between batches to prevent cross-contamination."
+        ],
+        storage: "Masala Chai is best enjoyed immediately after preparation while hot. If necessary, it can be refrigerated for up to 24 hours and reheated thoroughly. The flavor may change slightly upon reheating, and the spices will continue to infuse, potentially intensifying the flavor.",
+        serving: "Served hot in a traditional cup or mug. Best enjoyed slowly to appreciate the complex spice notes that unfold as you sip. Pairs wonderfully with both savory snacks and sweet desserts, making it perfect for any time of day."
+      },
+      "lychee-martini": {
+        name: "Lychee Martini",
+        price: "$12",
+        image: "https://storage.googleapis.com/a1aa/image/f92a0222-00ce-4d11-898e-38451cf93341.jpg",
+        cuisine: "Asian Fusion",
+        description: "Our Lychee Martini is an elegant and refreshing cocktail featuring the delicate, floral sweetness of lychee fruit balanced with premium vodka and a hint of vermouth. This sophisticated drink offers a perfect harmony of exotic fruit flavors and smooth spirits, garnished with a fresh lychee for a beautiful presentation.",
+        origin: "The Lychee Martini is a modern Asian-inspired variation of the classic martini. It gained popularity in upscale cocktail bars in the 1990s and 2000s as Asian fusion cuisine became trendy worldwide. The drink celebrates the subtle, aromatic qualities of lychee fruit, which has been cultivated in China for more than 2,000 years and is considered a symbol of romance and love in Chinese culture.",
+        preparation: "Our mixologists begin by chilling a martini glass to ensure the perfect serving temperature. Premium vodka is combined with fresh lychee purÃ©e and a touch of dry vermouth in a cocktail shaker with ice. The mixture is vigorously shaken to achieve the ideal dilution and temperature, then finely strained into the chilled glass. Each martini is garnished with a skewer of fresh lychee fruit for both visual appeal and an extra treat after finishing the cocktail.",
+        ingredients: ["Premium vodka", "Fresh lychee purÃ©e", "Dry vermouth", "Simple syrup", "Fresh lychee fruit"],
+        spices: ["Subtle lemon zest (trace)"],
+        allergens: "Contains alcohol. No common allergens present, but prepared in a bar that handles various fruits, nuts, and dairy.",
+        nutritionalInfo: {
+          calories: "210 kcal",
+          protein: "0g",
+          carbs: "18g",
+          fats: "0g",
+          sodium: "5mg",
+          fiber: "0g",
+          sugar: "15g"
+        },
+        dietary: "Vegan. Gluten-free. Contains alcohol (approximately 1.5oz or 45ml of 40% alcohol by volume). Contains natural sugars from fruit and added simple syrup.",
+        hygieneTips: [
+          "We use fresh lychee that is carefully washed and stored properly.",
+          "All our bar tools are sanitized regularly throughout service.",
+          "Ice is made from filtered water and stored in clean containers to prevent contamination.",
+          "Our bartenders follow strict hygiene protocols, including regular hand washing and wearing gloves when handling garnishes."
+        ],
+        storage: "The Lychee Martini is prepared fresh to order and should be consumed immediately for the best flavor experience. Not suitable for storage or takeaway, as the quality will diminish rapidly.",
+        serving: "Served in a chilled martini glass with a skewer of fresh lychee fruit. Best enjoyed slowly to appreciate the delicate flavors. The ideal temperature is very cold but not frozen. Perfect as an aperitif before dinner or as a refreshing cocktail on its own."
+      },
+      "sugarcane-juice": {
+        name: "Fresh Sugarcane Juice",
+        price: "$4",
+        image: "https://storage.googleapis.com/a1aa/image/8431a4da-ebb5-4b4b-3de6-b4ab7f1a98db.jpg",
+        cuisine: "Bangladeshi",
+        description: "Our Fresh Sugarcane Juice is a naturally sweet, refreshing beverage extracted from premium sugarcane stalks. This vibrant, green-tinted elixir offers a pure, unprocessed sweetness with subtle grassy notes, providing both refreshment and natural energy. We enhance ours with a hint of lime and ginger for a perfectly balanced flavor profile.",
+        origin: "Sugarcane juice has been consumed across South Asia, including Bangladesh, for thousands of years. It's a popular street beverage, especially during hot weather, and is valued not only for its sweet taste but also for its cooling properties according to traditional medicine. In Bangladesh, mobile sugarcane juice vendors with hand-operated presses are a common and beloved sight in markets and streets.",
+        preparation: "We select fresh, mature sugarcane stalks and thoroughly clean them before peeling off the outer layer. The prepared stalks are then passed through our specialized juicer that extracts the maximum amount of juice while filtering out fibrous residue. For our signature version, we add a squeeze of fresh lime and a touch of ginger juice, which both enhance the flavor and act as natural preservatives. The juice is served immediately to ensure optimal freshness and nutritional value.",
+        ingredients: ["Fresh sugarcane stalks", "Fresh lime juice", "Ginger juice", "Ice (optional)"],
+        spices: ["Ginger", "Mint leaves (garnish)"],
+        allergens: "No common allergens present. Natural sugarcane juice is generally well-tolerated by most individuals.",
+        nutritionalInfo: {
+          calories: "120 kcal",
+          protein: "0g",
+          carbs: "30g",
+          fats: "0g",
+          sodium: "10mg",
+          fiber: "0g",
+          sugar: "28g"
+        },
+        dietary: "Vegan. Gluten-free. Contains natural sugars only - no artificial sweeteners or additives. Rich in electrolytes and minerals including iron, magnesium, calcium, and potassium. Natural source of antioxidants.",
+        hygieneTips: [
+          "We use only fresh sugarcane that is thoroughly washed before juicing.",
+          "Our juicing equipment is cleaned and sanitized before each use to ensure hygiene.",
+          "The juice is prepared to order and served immediately, as fresh sugarcane juice can ferment quickly if stored.",
+          "For individuals with diabetes or blood sugar concerns, please enjoy in moderation due to the natural sugar content."
+        ],
+        storage: "Fresh sugarcane juice is best consumed immediately after preparation, as it oxidizes quickly and can ferment within hours. We do not recommend storage. If necessary, it can be refrigerated for up to 3-4 hours in an airtight container, but the flavor and nutritional value will diminish rapidly.",
+        serving: "Served chilled but not over-iced to preserve the natural flavor. Typically presented in a tall glass garnished with a sprig of mint. Drink through a straw to fully appreciate the clean, sweet flavor. Perfect as a refreshing afternoon beverage or as a natural energy boost."
+      }
+    };
+
+    // Food Detail Modal Functionality
+    const foodDetailModal = document.getElementById('foodDetailModal');
+    const closeFoodDetail = document.getElementById('closeFoodDetail');
+    const foodDetailTabs = document.querySelectorAll('.food-detail-tab');
+    const foodDetailSections = document.querySelectorAll('.food-detail-section');
+
+    // Menu item click handler
+    document.querySelectorAll('.menu-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const itemId = this.getAttribute('data-item-id');
+        openFoodDetail(itemId);
+      });
+    });
+
+    // Close food detail modal
+    closeFoodDetail.addEventListener('click', () => {
+      foodDetailModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    // Close modal when clicking outside content
+    window.addEventListener('click', (e) => {
+      if (e.target === foodDetailModal) {
+        foodDetailModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Tab functionality in food detail modal
+    foodDetailTabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        // Remove active class from all tabs
+        foodDetailTabs.forEach(t => t.classList.remove('active'));
+        // Add active class to clicked tab
+        this.classList.add('active');
+        
+        // Hide all sections
+        foodDetailSections.forEach(s => s.classList.remove('active'));
+        // Show corresponding section
+        const tabName = this.getAttribute('data-tab');
+        document.getElementById(`${tabName}Tab`).classList.add('active');
+      });
+    });
+
+    // Function to open food detail modal with item data
+    function openFoodDetail(itemId) {
+      const item = menuItemsData[itemId];
+      if (!item) return;
+      
+      // Populate modal with item data
+      document.getElementById('foodDetailImage').src = item.image;
+      document.getElementById('foodDetailImage').alt = item.name;
+      document.getElementById('foodDetailTitle').textContent = item.name;
+      document.getElementById('foodDetailPrice').textContent = item.price;
+      document.getElementById('foodDetailCuisine').textContent = item.cuisine;
+      
+      // Description tab
+      document.getElementById('foodDetailDescription').textContent = item.description;
+      document.getElementById('foodDetailOrigin').textContent = item.origin;
+      document.getElementById('foodDetailPreparation').textContent = item.preparation;
+      
+      // Ingredients tab
+      const ingredientsContainer = document.getElementById('foodDetailIngredients');
+      ingredientsContainer.innerHTML = '';
+      item.ingredients.forEach(ingredient => {
+        const tag = document.createElement('div');
+        tag.className = 'ingredient-tag';
+        tag.innerHTML = `<i class="fas fa-utensil-spoon text-red-600"></i> ${ingredient}`;
+        ingredientsContainer.appendChild(tag);
+      });
+      
+      const spicesContainer = document.getElementById('foodDetailSpices');
+      spicesContainer.innerHTML = '';
+      item.spices.forEach(spice => {
+        const tag = document.createElement('div');
+        tag.className = 'ingredient-tag';
+        tag.innerHTML = `<i class="fas fa-pepper-hot text-red-600"></i> ${spice}`;
+        spicesContainer.appendChild(tag);
+      });
+      
+      document.getElementById('foodDetailAllergens').textContent = item.allergens;
+      
+      // Nutrition tab
+      const nutritionContainer = document.getElementById('foodDetailNutrition');
+      nutritionContainer.innerHTML = '';
+      Object.entries(item.nutritionalInfo).forEach(([key, value]) => {
+        const formattedKey = key.charAt(0).toUpperCase() + key.slice(1);
+        const nutritionItem = document.createElement('div');
+        nutritionItem.className = 'nutritional-item';
+        nutritionItem.innerHTML = `
+          <span class="font-medium">${formattedKey}</span>
+          <span>${value}</span>
+        `;
+        nutritionContainer.appendChild(nutritionItem);
+      });
+      
+      document.getElementById('foodDetailDietary').textContent = item.dietary;
+      
+      // Tips tab
+      const hygieneList = document.getElementById('foodDetailHygiene');
+      hygieneList.innerHTML = '';
+      item.hygieneTips.forEach(tip => {
+        const li = document.createElement('li');
+        li.textContent = tip;
+        hygieneList.appendChild(li);
+      });
+      
+      document.getElementById('foodDetailStorage').textContent = item.storage;
+      document.getElementById('foodDetailServing').textContent = item.serving;
+      
+      // Reset active tab to description
+      foodDetailTabs.forEach(t => t.classList.remove('active'));
+      foodDetailTabs[0].classList.add('active');
+      foodDetailSections.forEach(s => s.classList.remove('active'));
+      document.getElementById('descriptionTab').classList.add('active');
+      
+      // Show modal
+      foodDetailModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+  </script>
+</body>
+</html>
+
